@@ -44,9 +44,7 @@ class ControllerBase
 
   def render(template_name)
     path = File.dirname(__FILE__)
-    new_path = File.join('views',
-      "#{self.class.to_s.underscore}" ,
-      "#{template_name}.html.erb")
+    new_path = File.join(path,'../views', "#{self.class.to_s.underscore}", "#{template_name}.html.erb")
 
     file_content = File.read(new_path)
     erb_code = ERB.new(file_content).result(binding)
